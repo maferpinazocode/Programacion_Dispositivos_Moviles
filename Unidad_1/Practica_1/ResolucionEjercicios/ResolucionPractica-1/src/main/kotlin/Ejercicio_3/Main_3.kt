@@ -2,8 +2,6 @@ package Ejercicio_3
 
 import kotlin.random.Random
 
-import kotlin.random.Random
-
 fun main(args: Array<String>) {
     // Genera un número aleatorio entre 1 y 31
     val numeroGenerado = crearNumeroAleatorio(1, 31)
