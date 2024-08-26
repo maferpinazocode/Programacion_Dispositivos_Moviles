@@ -9,6 +9,11 @@ fun hallarNivel(puntuacion: Int): String {
     }
 }
 
+fun hallarDinero(salario: Float, puntuacion: Int): Float {
+    val dinero: Float = salario * (puntuacion / 10.0f)  // División flotante para obtener un resultado decimal
+    return dinero
+}
+
 fun main(args: Array<String>) {
     var puntuacionUsuario: Int
     while (true) {
@@ -26,5 +31,8 @@ fun main(args: Array<String>) {
 
     var nivelUsuario = hallarNivel(puntuacionUsuario)
 
+    var cantidadDinero = hallarDinero(salarioMensual, puntuacionUsuario)
+
+    println("Resultado: Nivel de Rendimiento $nivelUsuario, Cantidad de dinero recibido $cantidadDinero")
 
 }
