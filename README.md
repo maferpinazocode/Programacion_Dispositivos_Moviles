@@ -30,26 +30,29 @@ Este repositorio contiene la solución a los ejercicios de la **Práctica 1** de
 ## Estructura Detallada del Repositorio
 
 ```plaintext
-Practica1/
-├── ResolucionEjercicios/
-│   └── ResolucionPractica-1/
-│       ├── .idea/
-│       ├── out/
-│       ├── src/
-│       │   └── main/
-│       │       └── kotlin/
-│       │           ├── Ejercicio_1/
-│       │           │   └── Main_1.kt
-│       │           ├── Ejercicio_2/
-│       │           │   └── Main_2.kt
-│       │           ├── Ejercicio_3/
-│       │           │   └── Main_3.kt
-│       │           └── Ejercicio_4/
-│       │               └── Main_4.kt
-│       ├── test/
-│       └── .gitignore
-├── Investigacion/
-│   └── InvestigacionKotlin.docx
-├── Rubrica/
-│   └── Rubrica_Practica1.docx
-└── README.md
+Unidad_1/
+├── Practica1/
+│   ├── ResolucionEjercicios/
+│   │   └── ResolucionPractica-1/
+│   │       ├── .idea/
+│   │       ├── out/
+│   │       ├── src/
+│   │       │   └── main/
+│   │       │       └── kotlin/
+│   │       │           ├── Ejercicio_1/
+│   │       │           │   └── Main_1.kt
+│   │       │           ├── Ejercicio_2/
+│   │       │           │   └── Main_2.kt
+│   │       │           ├── Ejercicio_3/
+│   │       │           │   └── Main_3.kt
+│   │       │           └── Ejercicio_4/
+│   │       │               └── Main_4.kt
+│   │       ├── test/
+│   │       └── .gitignore
+│   ├── Investigacion/
+│   │   └── InvestigacionKotlin.docx
+│   ├── Rubrica/
+│   │   └── Rubrica_Practica1.docx
+│   └── README.md
+├── README.md
+
