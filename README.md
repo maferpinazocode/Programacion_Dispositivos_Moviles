@@ -12,7 +12,7 @@ Este repositorio contiene la solución a los ejercicios de la **Práctica 1** de
 
 1. **Clonar el repositorio** en tu computadora utilizando el siguiente comando:
     ```bash
-    git clone https://github.com/tu_usuario/Practica1.git
+    git clone https://github.com/maferpinazocode/Practica1.git
     ```
 2. **Acceder** a la carpeta que contiene los ejercicios:
     ```bash
