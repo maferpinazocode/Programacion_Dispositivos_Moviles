@@ -19,29 +19,48 @@ fun hallarDinero(salario: Float, puntuacion: Int): Float {
     return dinero
 }
 
+// Función principal
 fun main(args: Array<String>) {
     var puntuacionUsuario: Int
+
+    // Bucle para asegurar que el usuario ingrese una puntuación válida
     while (true) {
-        println("Ingresar puntuación de usuario en el rango de 0 a 10")
-        puntuacionUsuario = readln().toInt()
-        // Verificar que esté en el rango permitido
-        if (puntuacionUsuario in 0..10) {
-            break // Si es válida, rompe el bucle
-        } else {
-            println("Puntuación no establecida, vuelve a ingresar")
+        try {
+            println("Ingresar puntuación de usuario en el rango de 0 a 10")
+            puntuacionUsuario = readln().toInt()  // Lee la entrada y la convierte a Int
+
+            // Verificar que esté en el rango permitido
+            if (puntuacionUsuario in 0..10) {
+                break  // Si es válida, rompe el bucle
+            } else {
+                println("Puntuación fuera de rango, vuelve a ingresar")
+            }
+        } catch (e: NumberFormatException) {
+            // Capturar excepciones por si el usuario ingresa un valor que no numérico
+            println("Entrada inválida. Por favor, ingresa un número entero.")
         }
     }
 
-    println("Ingresar salario mensual de usuario")
-    var salarioMensual = readln().toFloat()
+    var salarioMensual: Float
+
+    // Manejo de excepciones para la entrada del salario
+    while (true) {
+        try {
+            println("Ingresar salario mensual de usuario")
+            salarioMensual = readln().toFloat()  // Lee la entrada y la convierte a Float
+            break  // Si la conversión es correcta, se rompe el bucle
+        } catch (e: NumberFormatException) {
+            // Si el usuario ingresa un valor que no es un numérico, captura excepciones
+            println("Entrada inválida. Por favor, ingresa un número válido para el salario.")
+        }
+    }
 
     // Determina el nivel de rendimiento mediante en la puntuación del usuario
-    var nivelUsuario = hallarNivel(puntuacionUsuario)
+    val nivelUsuario = hallarNivel(puntuacionUsuario)
 
     // Calcula la cantidad de dinero que el usuario recibirá por en el salario y la puntuación
-    var cantidadDinero = hallarDinero(salarioMensual, puntuacionUsuario)
+    val cantidadDinero = hallarDinero(salarioMensual, puntuacionUsuario)
 
     // Imprime el resultado
     println("Resultado: Nivel de Rendimiento $nivelUsuario, Cantidad de dinero recibido $cantidadDinero")
-
 }
