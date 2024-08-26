@@ -1,80 +1,86 @@
 package Ejercicio_4
 
+import kotlin.random.Random
+
 fun main(args: Array<String>) {
-    // Bucle infinito para mostrar el menú repetidamente hasta que el usuario decida salir
-    while (true) {
-        // Llamamos a la función para mostrar el menú y obtenemos la opción seleccionada
-        val seleccion = desplegarMenu()
+    // Genera un número aleatorio entre 1 y 31
+    val numeroGenerado = crearNumeroAleatorio(1, 31)
+    // Número de intentos que el usuario tiene para adivinar
+    val numIntentos = 5
+    println("-- Bienvenido a adivinar el número --")
+    println("Se te otorgarán pistas ")
 
-        // Si la opción seleccionada es 5, salimos del programa
-        if (seleccion == 5) {
-            println("Saliendo...")
-            break
-        }
+    // Inicia el juego con el número generado y el número de intentos
+    ejecutarJuego(numeroGenerado, numIntentos)
+}
 
-        // Verificamos si la opción es válida (entre 1 y 4)
-        if (seleccion in 1..4) {
-            // Pedimos los dos números al usuario
-            val primerNumero = solicitarNumero("Ingrese el primer número:")
-            val segundoNumero = solicitarNumero("Ingrese el segundo número:")
+// Función para crear un número aleatorio en un rango especificado
+fun crearNumeroAleatorio(min: Int, max: Int): Int {
+    return Random.nextInt(min, max)
+}
 
-            // Calculamos el resultado de la operación seleccionada
-            val resultado = calcularOperacion(seleccion, primerNumero, segundoNumero)
+// Función principal del juego
+fun ejecutarJuego(numeroGenerado: Int, intentosRestantes: Int) {
+    var intentos = intentosRestantes
 
-            // Si el resultado no es nulo, mostramos el resultado
-            resultado?.let {
-                println("Resultado: $it")
+    // Mientras queden intentos
+    while (intentos > 0) {
+        println("Te quedan $intentos intento(s).")
+        println("¡Ingresa el número!")
+
+        // Obtiene el número ingresado por el usuario, manejando posibles errores
+        val numeroIngresado = obtenerNumeroUsuario()
+
+        // Si el número ingresado es válido
+        if (numeroIngresado != null) {
+            // Verifica si el número ingresado es el correcto
+            if (verificarNumero(numeroIngresado, numeroGenerado)) {
+                println("¡Muy bien, acertaste :)")
+                break // Termina el juego si el número es correcto
+            } else {
+                // Ofrece una pista si el número no es correcto
+                generarPista(numeroIngresado, numeroGenerado)
+                intentos -= 1 // Reduce el número de intentos
+                if (intentos > 0) {
+                    println("Vuelve a intentarlo.")
+                }
             }
         } else {
-            // Si la opción no es válida, mostramos un mensaje de error
-            println("Selección inválida, intente nuevamente.")
+            // Mensaje de error si el número ingresado no es válido
+            println("Por favor, ingresa un número válido.")
         }
+    }
+
+    // Mensaje final cuando se acabaron los intentos
+    if (intentos == 0) {
+        println("Lo siento, se te acabaron los intentos. El número era $numeroGenerado.")
     }
 }
 
-// Función para mostrar el menú y obtener la opción seleccionada por el usuario
-fun desplegarMenu(): Int {
+// Función para obtener el número ingresado por el usuario y manejar errores
+fun obtenerNumeroUsuario(): Int? {
     return try {
-        println("==== Menú de Operaciones ====")
-        println("1. Suma")
-        println("2. Resta")
-        println("3. Multiplicación")
-        println("4. División")
-        println("5. Salir")
-        // Leemos la opción del usuario y la convertimos a entero
-        readln().toInt()
+        readln().toIntOrNull() // Intenta convertir la entrada a entero
     } catch (e: NumberFormatException) {
-        // Si el usuario no ingresa un número válido, mostramos un mensaje de error
-        println("Error: Entrada no válida. Por favor, ingrese un número válido.")
-        -1 // Retornamos un valor inválido para indicar un error
+        null // Devuelve null si ocurre una excepción
     }
 }
 
-// Función para solicitar un número al usuario con un mensaje específico
-fun solicitarNumero(mensaje: String): Double {
-    while (true) {
-        try {
-            println(mensaje)
-            // Leemos el número del usuario y lo convertimos a Double
-            return readln().toDouble()
-        } catch (e: NumberFormatException) {
-            // Si el usuario no ingresa un número válido, mostramos un mensaje de error
-            println("Error: Entrada no válida. Por favor, ingrese un número válido.")
-        }
+// Función para verificar si el número ingresado es el correcto
+fun verificarNumero(numeroIngresado: Int, numeroGenerado: Int): Boolean {
+    return if (numeroIngresado == numeroGenerado) {
+        println("¡El número a adivinar es $numeroGenerado!")
+        true
+    } else {
+        false
     }
 }
 
-// Función para calcular la operación matemática basada en la opción seleccionada
-fun calcularOperacion(seleccion: Int, numero1: Double, numero2: Double): Double? {
-    return when (seleccion) {
-        1 -> numero1 + numero2 // Opción 1: Suma
-        2 -> numero1 - numero2 // Opción 2: Resta
-        3 -> numero1 * numero2 // Opción 3: Multiplicación
-        4 -> if (numero2 != 0.0) numero1 / numero2 else {
-            // Opción 4: División, con chequeo para evitar división por cero
-            println("Error: División por cero no permitida.")
-            null // Retornamos null en caso de error
-        }
-        else -> null // Para cualquier otro valor de opción, retornamos null
+// Función para generar una pista sobre el número a adivinar
+fun generarPista(numeroIngresado: Int, numeroGenerado: Int) {
+    if (numeroIngresado < numeroGenerado) {
+        println("¡El número a adivinar es mayor!")
+    } else {
+        println("¡El número a adivinar es menor!")
     }
 }
