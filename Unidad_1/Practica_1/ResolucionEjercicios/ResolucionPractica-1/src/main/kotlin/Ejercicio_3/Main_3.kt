@@ -21,7 +21,7 @@ fun ejecutarJuego(numeroGenerado: Int, intentosRestantes: Int) {
     while (intentos > 0) {
         println("Te quedan $intentos intento(s).")
         println("¡Ingresa el número!")
-        val numeroIngresado = readln().toIntOrNull()
+        val numeroIngresado = obtenerNumeroUsuario()
 
         if (numeroIngresado != null) {
             if (verificarNumero(numeroIngresado, numeroGenerado)) {
@@ -41,6 +41,14 @@ fun ejecutarJuego(numeroGenerado: Int, intentosRestantes: Int) {
 
     if (intentos == 0) {
         println("Lo siento, se te acabaron los intentos. El número era $numeroGenerado.")
+    }
+}
+
+fun obtenerNumeroUsuario(): Int? {
+    return try {
+        readln().toIntOrNull()
+    } catch (e: NumberFormatException) {
+        null
     }
 }
 
