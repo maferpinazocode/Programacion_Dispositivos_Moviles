@@ -1,5 +1,13 @@
 package Ejercicio_1
 
+fun hallarNivel(puntuacion: Int): String {
+    return when (puntuacion) {
+        in 0..3 -> "Inaceptable"
+        in 4..6 -> "Aceptable"
+        in 7..10 -> "Meritorio"
+        else -> "Nivel no establecido"
+    }
+}
 
 fun main(args: Array<String>) {
     var puntuacionUsuario: Int
@@ -15,6 +23,8 @@ fun main(args: Array<String>) {
 
     println("Ingresar salario mensual de usuario")
     var salarioMensual = readln().toFloat()
+
+    var nivelUsuario = hallarNivel(puntuacionUsuario)
 
 
 }
