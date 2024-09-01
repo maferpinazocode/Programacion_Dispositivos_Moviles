@@ -1,37 +1,32 @@
 package SegundoEjercicio.Clases
 
 class Producto(precio: Double, descuento: Double) {
-    var preciosAccesos: Int = 0
-    var descuentoAccesos: Int = 0
-
+    private var _preciosAccesos: Int = 0
+    private var _descuentoAccesos: Int = 0
 
     var precio: Double = precio
         set(value) {
-            if (value >= 0){
+            if (value >= 0) {
                 field = value
-            }
-            else{
+            } else {
                 throw IllegalArgumentException("El precio no puede ser negativo.")
             }
         }
         get() {
-            preciosAccesos ++
-            println("Accediendo al precio. Veces accedido: $preciosAccesos")
+            _preciosAccesos++
             return field
         }
 
     var descuento: Double = descuento
         set(value) {
-            if (value in 0.0 .. 100.0){
+            if (value in 0.0..100.0) {
                 field = value
-            }
-            else{
-                throw IllegalArgumentException("El descuento no puede ser negativo. De estar entre 0 y 100.")
+            } else {
+                throw IllegalArgumentException("El descuento debe estar entre 0 y 100.")
             }
         }
         get() {
-            descuentoAccesos++
-            println("Accediendo al descuento. Veces accedido: $descuentoAccesos")
+            _descuentoAccesos++
             return field
         }
 
@@ -40,11 +35,9 @@ class Producto(precio: Double, descuento: Double) {
         return precioActual - (precioActual * (descuento / 100))
     }
 
-
-    fun reiniciarProducto() {
-        precio = 0.0
-        descuento = 0.0
-        preciosAccesos = 0
-        descuentoAccesos = 0
+    fun mostrarTotales() {
+        println("Total accesos al precio: $_preciosAccesos")
+        println("Total accesos al descuento: $_descuentoAccesos")
     }
+
 }
