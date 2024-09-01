@@ -34,4 +34,15 @@ class Producto(precio: Double, descuento: Double) {
             println("Accediendo al descuento. Veces accedido: $descuentoAccesos")
             return field
         }
+
+    fun calcularPrecioFinal(): Double {
+        return precio - (precio * (descuento / 100))
+    }
+
+    fun reiniciarProducto() {
+        precio = 0.0
+        descuento = 0.0
+        preciosAccesos = 0
+        descuentoAccesos = 0
+    }
 }
