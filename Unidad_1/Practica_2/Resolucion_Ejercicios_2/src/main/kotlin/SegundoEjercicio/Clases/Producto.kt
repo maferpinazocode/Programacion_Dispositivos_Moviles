@@ -36,8 +36,10 @@ class Producto(precio: Double, descuento: Double) {
         }
 
     fun calcularPrecioFinal(): Double {
-        return precio - (precio * (descuento / 100))
+        val precioActual = precio // Accedes solo una vez a la propiedad
+        return precioActual - (precioActual * (descuento / 100))
     }
+
 
     fun reiniciarProducto() {
         precio = 0.0
