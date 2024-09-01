@@ -1,5 +1,5 @@
-package Controlador
-import Clases.CuentaBancaria
+package PrimerEjercicio.Controlador
+import PrimerEjercicio.Clases.CuentaBancaria
 
 fun main() {
     // Se crea una nueva instancia de CuentaBancaria con un saldo inicial de 1000.0 y un límite de retiro de 500.0

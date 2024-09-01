@@ -1,4 +1,4 @@
-package Clases
+package PrimerEjercicio.Clases
 import java.time.LocalDate
 
 // Clase para representar una transacción, incluyendo el tipo (retiro o depósito), monto y fecha.
