@@ -1,6 +1,6 @@
-# Práctica 1 - Programación para Dispositivos Móviles
+# Programación para Dispositivos Móviles
 
-Este repositorio contiene la solución a los ejercicios de la Práctica 1 en Kotlin.
+Este repositorio contiene la solución a los ejercicios de las practicas en Kotlin.
 
 ## Estructura
 
