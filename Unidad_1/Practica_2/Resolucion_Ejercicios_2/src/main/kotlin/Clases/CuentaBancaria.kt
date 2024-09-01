@@ -15,4 +15,8 @@ class CuentaBancaria(var saldo: Double, var limiteRetiro: Double) {
             println("Error. El monto a depositar debe ser mayor a cero.")
         }
     }
+
+    fun mostrarEstado(): String {
+        return "Saldo actual: $saldo, Limite de Retiro: $limiteRetiro"
+    }
 }
