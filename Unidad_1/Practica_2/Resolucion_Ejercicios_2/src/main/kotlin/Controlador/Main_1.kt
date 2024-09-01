@@ -6,6 +6,10 @@ fun main(args: Array<String>) {
     var cuenta = CuentaBancaria(230.0,300.5)
     println(cuenta.mostrarEstado())
 
+    cuenta.retiro(200.0)
+    println("Retiro realizado con éxito.")
+    println(cuenta.mostrarEstado())
+
     // Try adding program arguments via Run/Debug configuration.
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")

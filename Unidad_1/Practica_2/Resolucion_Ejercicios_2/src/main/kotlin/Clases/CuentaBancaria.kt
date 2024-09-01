@@ -1,6 +1,7 @@
 package Clases
-data class Transaccion(val tipo: String, val monto: Double, val fecha: String)
+import java.time.LocalDate
 
+data class Transaccion(val tipo: String, val monto: Double, val fecha: String)
 
 class CuentaBancaria(var saldo: Double, var limiteRetiro: Double) {
 
@@ -8,6 +9,11 @@ class CuentaBancaria(var saldo: Double, var limiteRetiro: Double) {
     init {
         require(saldo >= 0){"Lo siento. El saldo no debe ser negativo."}
         require(limiteRetiro > 0){"El límite de retiro debe ser mayor a cero."}
+    }
+
+    fun retiro(monto: Double){
+        saldo -= monto
+        historialTransacciones.add(Transaccion("Retiro", monto, LocalDate.now().toString()))
     }
 
     fun depositar(monto: Double){
