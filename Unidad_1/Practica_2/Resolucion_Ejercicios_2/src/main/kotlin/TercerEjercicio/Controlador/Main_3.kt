@@ -19,7 +19,7 @@ fun main() {
     rectangulo.imprimirInformacion()
 
 
-    val circuloSec = Circulo(8.0, "Este es un círculo con un radio especial.")
+    val circuloSec = Circulo(2.0,3.0)
     println("\nCírculo con constructor secundario:")
     circuloSec.imprimirInformacion()
 }
