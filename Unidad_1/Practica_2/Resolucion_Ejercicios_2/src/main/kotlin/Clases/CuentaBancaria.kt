@@ -19,6 +19,7 @@ class CuentaBancaria(var saldo: Double, var limiteRetiro: Double) {
     fun depositar(monto: Double){
         if(monto > 0){
             saldo += monto
+            historialTransacciones.add(Transaccion("Depósito", monto, LocalDate.now().toString()))
             println("Deposito realizado con éxito. Nuevo saldo: $saldo")
         }
         else{
@@ -28,5 +29,9 @@ class CuentaBancaria(var saldo: Double, var limiteRetiro: Double) {
 
     fun mostrarEstado(): String {
         return "Saldo actual: $saldo, Limite de Retiro: $limiteRetiro"
+    }
+
+    fun mostrarHistorial(): List<Transaccion>{
+        return historialTransacciones
     }
 }
