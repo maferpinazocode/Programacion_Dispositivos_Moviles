@@ -1,11 +1,10 @@
-# Práctica 1 - Programación para Dispositivos Móviles
+# Práctica 2 - Programación para Dispositivos Móviles
 
-Este repositorio contiene la solución a los ejercicios de la **Práctica 1** del curso de **Programación para Dispositivos Móviles**. Todos los ejercicios han sido resueltos utilizando el lenguaje de programación **Kotlin**.
+Este repositorio contiene la solución a los ejercicios de la **Práctica 2** del curso de **Programación para Dispositivos Móviles**. Todos los ejercicios han sido resueltos utilizando el lenguaje de programación **Kotlin**.
 
 ## Estructura de la Práctica
 
 - **Ejercicios**: Carpeta que contiene las soluciones a los ejercicios prácticos solicitados.
-- **Investigación**: Incluye la investigación y los documentos de soporte necesarios para la comprensión de los ejercicios.
 - **README.md**: Este archivo proporciona información sobre la estructura del proyecto y las instrucciones para ejecutar los ejercicios.
 
 ## Instrucciones para Ejecutar los Ejercicios
@@ -16,14 +15,14 @@ Este repositorio contiene la solución a los ejercicios de la **Práctica 1** de
     ```
 2. **Acceder** a la carpeta que contiene los ejercicios:
     ```bash
-    cd Practica1/ResolucionEjercicios/
+    cd Practica2/ResolucionEjercicios/
     ```
 3. **Abrir el proyecto** con IntelliJ IDEA u otro.
 4. En el IDE, **navegar** a la estructura de archivos:
     ```
     src/main/kotlin/
     ```
-5. Selecciona el ejercicio que deseas ejecutar por ejemplo, `Ejercicio1`, `Ejercicio2`, etc.
+5. Selecciona el ejercicio que deseas ejecutar por ejemplo, `PrimerEjercicio`, `SegundoEjercicio`, etc.
 6. **Ejecutar** el archivo principal (`Main_1.kt`) haciendo clic derecho sobre el archivo y seleccionando la opción `Run`.
 7. **Revisar los resultados** en la consola.
 
@@ -31,28 +30,46 @@ Este repositorio contiene la solución a los ejercicios de la **Práctica 1** de
 
 ```plaintext
 Unidad_1/
-├── Practica1/
-│   ├── ResolucionEjercicios/
-│   │   └── ResolucionPractica-1/
-│   │       ├── .idea/
-│   │       ├── out/
-│   │       ├── src/
-│   │       │   └── main/
-│   │       │       └── kotlin/
-│   │       │           ├── Ejercicio_1/
+├── Practica2/
+│   ├── Resolucion_Ejercicios_2/
+│   │   └── .idea/
+│   │   └── out/
+│   │   └── src/
+│   │       ├── main/
+│   │       │   └── kotlin/
+│   │       │       └── PrimerEjercicio/
+│   │       │           ├── Clases/
+│   │       │           │   └── CuentaBancaria.kt
+│   │       │           ├── Controlador/
 │   │       │           │   └── Main_1.kt
-│   │       │           ├── Ejercicio_2/
+│   │       │       └── SegundoEjercicio/
+│   │       │           ├── Clases/
+│   │       │           │   └── Producto.kt
+│   │       │           ├── Controlador/
 │   │       │           │   └── Main_2.kt
-│   │       │           ├── Ejercicio_3/
+│   │       │       └── TercerEjercicio/
+│   │       │           ├── Clases/
+│   │       │           │   └── Criculo.kt
+│   │       │           │   └── Cuadrado.kt
+│   │       │           │   └── Rectangulo.kt
+│   │       │           │   └── Shape.kt
+│   │       │           ├── Controlador/
 │   │       │           │   └── Main_3.kt
-│   │       │           └── Ejercicio_4/
-│   │       │               └── Main_4.kt
+│   │       │       └── CuartoEjercicio/
+│   │       │           ├── Clases/
+│   │       │           │   └── Biblioteca.kt
+│   │       │           │   └── Libro.kt
+│   │       │           │   └── Material.kt
+│   │       │           │   └── Revista.kt
+│   │       │           │   └── Usuario.kt
+│   │       │           ├── Controlador/
+│   │       │           │   └── Main_4.kt
+│   │       │           ├── Interfaces/
+│   │       │           │   └── IBiblioteca.kt
 │   │       ├── test/
 │   │       └── .gitignore
-│   ├── Investigacion/
-│   │   └── InvestigacionKotlin.docx
 │   ├── Rubrica/
-│   │   └── Rubrica_1.docx
+│   │   └── Rubrica_2.docx.pdf
 │   └── README.md
 ├── README.md
 
