@@ -20,18 +20,26 @@ class CuentaBancaria(saldo: Double, var limiteRetiro: Double) {
 
 
     fun retiro(monto: Double){
-        saldo -= monto
-        historialTransacciones.add(Transaccion("Retiro", monto, LocalDate.now().toString()))
+        try {
+            if (monto <= 0) throw IllegalArgumentException("El monto de retiro debe ser positivo.")
+            if (monto > limiteRetiro) throw IllegalArgumentException("El monto de retiro excede el límite permitido.")
+            if (monto > saldo) throw IllegalArgumentException("Fondos insuficientes.")
+
+            saldo -= monto
+            historialTransacciones.add(Transaccion("Retiro", monto, LocalDate.now().toString()))
+        } catch (e: IllegalArgumentException) {
+            println("Error al realizar el retiro: ${e.message}")
+        }
     }
 
     fun depositar(monto: Double){
-        if(monto > 0){
+        try {
+            if (monto <= 0) throw IllegalArgumentException("El monto de depósito debe ser positivo.")
+
             saldo += monto
             historialTransacciones.add(Transaccion("Depósito", monto, LocalDate.now().toString()))
-            println("Deposito realizado con éxito. Nuevo saldo: $saldo")
-        }
-        else{
-            println("Error. El monto a depositar debe ser mayor a cero.")
+        } catch (e: IllegalArgumentException) {
+            println("Error al realizar el depósito: ${e.message}")
         }
     }
 
