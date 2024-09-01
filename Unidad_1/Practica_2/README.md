@@ -11,11 +11,11 @@ Este repositorio contiene la solución a los ejercicios de la **Práctica 2** de
 
 1. **Clonar el repositorio** en tu computadora utilizando el siguiente comando:
     ```bash
-    git clone https://github.com/maferpinazocode/Practica1.git
+    git clone https://github.com/maferpinazocode/Practica_2.git
     ```
 2. **Acceder** a la carpeta que contiene los ejercicios:
     ```bash
-    cd Practica2/ResolucionEjercicios/
+    cd Practica_2/Resolucion_Ejercicios_2/
     ```
 3. **Abrir el proyecto** con IntelliJ IDEA u otro.
 4. En el IDE, **navegar** a la estructura de archivos:
@@ -30,7 +30,7 @@ Este repositorio contiene la solución a los ejercicios de la **Práctica 2** de
 
 ```plaintext
 Unidad_1/
-├── Practica2/
+├── Practica_2/
 │   ├── Resolucion_Ejercicios_2/
 │   │   └── .idea/
 │   │   └── out/
