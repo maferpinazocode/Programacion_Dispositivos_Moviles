@@ -20,5 +20,11 @@ class Circulo(private val radio: Double) : Shape() {
     }
 
 
+    constructor(radio: Double, mensaje: String) : this(radio) {
+        println("\nInicializando Círculo con radio: $radio")
+        println(mensaje) // Función especial: imprimir mensaje adicional
+        hallarArea()
+        hallarPerimetro()
+    }
 
 }
