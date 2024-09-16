@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         nextButton = findViewById(R.id.nextButton)
 
         // Crear un array de nombres de las imágenes
-        val imageNames = arrayOf("Imagen 1", "Imagen 2", "Imagen 3")
+        val imageNames = arrayOf("Cocker Spaniel", "Basset Hound", "Husky")
 
         // Crear un adaptador para el Spinner
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, imageNames)
