@@ -13,13 +13,14 @@
         android:id="@+id/ivAudioImage"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:contentDescription="@string/content_desc"
+        android:src="@drawable/heavy_img"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.8"
         android:layout_marginTop="16dp" />
+
 
     <!-- Nombre del audio -->
     <TextView

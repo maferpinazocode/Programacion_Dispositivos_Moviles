@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
+import android.widget.ImageView
+
 
 
 class PlayerActivity : AppCompatActivity() {
@@ -14,54 +16,60 @@ class PlayerActivity : AppCompatActivity() {
     private lateinit var btnPause: Button
     private lateinit var btnStop: Button
     private lateinit var btnBack: Button
+    private lateinit var ivAudioImage: ImageView  // Añadir este ImageView
 
-    // Declaramos el MediaPlayer como una variable de clase
     private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player)
 
-        // Inicializamos las vistas
         tvAudioName = findViewById(R.id.tvAudioName)
         btnPlay = findViewById(R.id.btnPlay)
         btnPause = findViewById(R.id.btnPause)
         btnStop = findViewById(R.id.btnStop)
         btnBack = findViewById(R.id.btnBack)
+        ivAudioImage = findViewById(R.id.ivAudioImage)  // Inicializar el ImageView
 
-        // Recibimos el nombre del audio desde el intent
         val audioName = intent.getStringExtra("audioName")
         val audioResId = intent.getIntExtra("audioResId", 0)
+        val imageResId = getImageResIdForAudio(audioName)  // Obtener el ID del recurso de imagen
 
-        // Mostrar el nombre del audio seleccionado en el TextView
         tvAudioName.text = audioName
-
-        // Inicializar el MediaPlayer con el archivo de audio desde res/raw
         mediaPlayer = MediaPlayer.create(this, audioResId)
+        ivAudioImage.setImageResource(imageResId)  // Configurar la imagen
 
-        // Configurar los botones
         btnPlay.setOnClickListener {
-            mediaPlayer?.start() // Reproducir el audio
+            mediaPlayer?.start()
         }
 
         btnPause.setOnClickListener {
-            mediaPlayer?.pause() // Pausar el audio
+            mediaPlayer?.pause()
         }
 
         btnStop.setOnClickListener {
-            mediaPlayer?.stop()  // Detener el audio
-            mediaPlayer?.prepare() // Preparar para que pueda reproducirse de nuevo
+            mediaPlayer?.stop()
+            mediaPlayer?.prepare()
         }
 
         btnBack.setOnClickListener {
-            // Volver a la actividad anterior
             finish()
         }
     }
 
-    // Liberar los recursos del MediaPlayer cuando la actividad sea destruida
+    private fun getImageResIdForAudio(audioName: String?): Int {
+        return when (audioName) {
+            "crush by ethel cain" -> R.drawable.crush_img
+            "football by ethel cain" -> R.drawable.football_img
+            "heavy by the marias" -> R.drawable.the_marias_img
+            "paris texas by lana del rey" -> R.drawable.paris_texas
+            "yes to heaven by lana del rey" -> R.drawable.yth_img
+            else -> R.drawable.heavy_img  // Imagen predeterminada
+        }
+    }
+
     override fun onDestroy() {
-        mediaPlayer?.release() // Libera los recursos del MediaPlayer
+        mediaPlayer?.release()
         mediaPlayer = null
         super.onDestroy()
     }
