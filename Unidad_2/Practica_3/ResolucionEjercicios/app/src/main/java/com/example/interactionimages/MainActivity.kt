@@ -5,38 +5,41 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var imageSpinner: Spinner
+    private lateinit var nextButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // Mantén la configuración de WindowInsets
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        // Referencias a Spinner y Button
+        imageSpinner = findViewById(R.id.imageSpinner)
+        nextButton = findViewById(R.id.nextButton)
 
-        // Configurar el Spinner
-        val spinner: Spinner = findViewById(R.id.imageSpinner)
-        val imageNames = resources.getStringArray(R.array.image_names)
+        // Crear un array de nombres de las imágenes
+        val imageNames = arrayOf("Imagen 1", "Imagen 2", "Imagen 3")
+
+        // Crear un adaptador para el Spinner
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, imageNames)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+        imageSpinner.adapter = adapter
 
-        // Configurar el botón para ir a la siguiente actividad
-        val button: Button = findViewById(R.id.nextButton)
-        button.setOnClickListener {
-            val selectedImage = spinner.selectedItemPosition
+        // Listener del botón para ir a la siguiente actividad
+        nextButton.setOnClickListener {
+            // Obtener el índice seleccionado en el Spinner
+            val selectedImageIndex = imageSpinner.selectedItemPosition
+
+            // Crear un Intent para cambiar de actividad
             val intent = Intent(this, ImageActivity::class.java)
-            intent.putExtra("image_index", selectedImage)
+
+            // Pasar el índice de la imagen seleccionada a la siguiente actividad
+            intent.putExtra("image_index", selectedImageIndex)
+
+            // Iniciar la siguiente actividad
             startActivity(intent)
         }
     }

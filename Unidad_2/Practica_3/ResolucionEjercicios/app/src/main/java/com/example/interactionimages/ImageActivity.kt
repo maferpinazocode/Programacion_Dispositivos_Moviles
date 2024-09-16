@@ -19,9 +19,9 @@ class ImageActivity : AppCompatActivity() {
 
         // Mostrar la imagen correspondiente
         when (imageIndex) {
-            0 -> imageView.setImageResource(R.drawable.imagen1)
-            1 -> imageView.setImageResource(R.drawable.imagen2)
-            2 -> imageView.setImageResource(R.drawable.imagen3)
+            0 -> imageView.setImageResource(R.drawable.cocker1)
+            1 -> imageView.setImageResource(R.drawable.hushpuppy1)
+            2 -> imageView.setImageResource(R.drawable.husky1)
         }
 
         // Configurar el botón para volver a la actividad anterior
