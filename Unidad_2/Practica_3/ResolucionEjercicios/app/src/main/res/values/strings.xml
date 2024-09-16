@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">InteractionImages</string>
     <string name="next_button">Siguiente</string>
+    <string name="image_description">Selected Image</string>
     <string name="selected_image">Selected Image</string>
     <string name="back_button">Volver</string>
 </resources>
