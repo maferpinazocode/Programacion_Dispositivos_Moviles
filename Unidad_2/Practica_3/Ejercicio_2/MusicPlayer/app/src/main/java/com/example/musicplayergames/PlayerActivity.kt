@@ -13,6 +13,7 @@ class PlayerActivity : AppCompatActivity() {
     private lateinit var btnPlay: Button
     private lateinit var btnPause: Button
     private lateinit var btnStop: Button
+    private lateinit var btnBack: Button
 
     // Declaramos el MediaPlayer como una variable de clase
     private var mediaPlayer: MediaPlayer? = null
@@ -26,6 +27,7 @@ class PlayerActivity : AppCompatActivity() {
         btnPlay = findViewById(R.id.btnPlay)
         btnPause = findViewById(R.id.btnPause)
         btnStop = findViewById(R.id.btnStop)
+        btnBack = findViewById(R.id.btnBack)
 
         // Recibimos el nombre del audio desde el intent
         val audioName = intent.getStringExtra("audioName")
@@ -49,6 +51,11 @@ class PlayerActivity : AppCompatActivity() {
         btnStop.setOnClickListener {
             mediaPlayer?.stop()  // Detener el audio
             mediaPlayer?.prepare() // Preparar para que pueda reproducirse de nuevo
+        }
+
+        btnBack.setOnClickListener {
+            // Volver a la actividad anterior
+            finish()
         }
     }
 

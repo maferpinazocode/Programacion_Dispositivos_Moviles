@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var spinner: Spinner
     private lateinit var btnSelect: Button
 
-    private val audioList = listOf("audio1", "audio2", "audio3", "audio4", "audio5")
+    private val audioList = listOf("crush by ethel cain", "football by ethel cain ", "heavy by the marias", "paris texas by lana del rey", "yes to heaven by lana del rey")
     private val audioResIds = listOf(R.raw.crush, R.raw.football, R.raw.heavy, R.raw.paris_texas, R.raw.yes_to_heaven)
 
     override fun onCreate(savedInstanceState: Bundle?) {
