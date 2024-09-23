@@ -12,9 +12,10 @@ import androidx.navigation.fragment.findNavController
 
 class AudioSelectionFragment : Fragment() {
 
-    private lateinit var spinner: Spinner
-    private lateinit var btnSelect: Button
+    private lateinit var spinner: Spinner // Spinner para seleccionar audio
+    private lateinit var btnSelect: Button // Botón para confirmar selección
 
+    // Lista de títulos de los audios disponibles
     private val audioList = listOf(
         "crush by ethel cain",
         "football by ethel cain",
@@ -22,7 +23,8 @@ class AudioSelectionFragment : Fragment() {
         "paris texas by lana del rey",
         "yes to heaven by lana del rey"
     )
-    // Lista de audios
+
+    // Lista de IDs de recursos de audio correspondientes a cada título
     private val audioResIds = listOf(
         R.raw.crush,
         R.raw.football,
@@ -46,11 +48,14 @@ class AudioSelectionFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflar el layout del fragmento
         val view = inflater.inflate(R.layout.fragment_audio_selection, container, false)
+
+        // Inicializar el spinner y el botón
         spinner = view.findViewById(R.id.spinnerAudios)
         btnSelect = view.findViewById(R.id.btnSelect)
 
-        // Configurar el adaptador del spinner
+        // Configurar el adaptador del spinner con la lista de audios
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, audioList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
@@ -64,9 +69,9 @@ class AudioSelectionFragment : Fragment() {
                     audioResId = audioResIds[selectedAudioIndex],
                     imageResId = imageResIds[selectedAudioIndex] // Pasar también el ID de la imagen
                 )
-            findNavController().navigate(action)
+            findNavController().navigate(action) // Navegar al PlayerFragment
         }
 
-        return view
+        return view // Devolver la vista inflada
     }
 }

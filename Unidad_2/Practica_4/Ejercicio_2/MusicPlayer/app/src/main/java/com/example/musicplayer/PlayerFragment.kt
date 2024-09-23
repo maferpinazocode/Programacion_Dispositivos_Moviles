@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 
 class PlayerFragment : Fragment() {
 
+    // Definir botones, y aspectos
     private lateinit var tvAudioName: TextView
     private lateinit var ivAudioImage: ImageView
     private lateinit var btnPlay: Button
