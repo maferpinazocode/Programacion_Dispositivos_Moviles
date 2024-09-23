@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/audioSelectionFragment">
+
+    <fragment
+        android:id="@+id/audioSelectionFragment"
+        android:name="com.example.musicplayer.AudioSelectionFragment"
+        android:label="Seleccionar Audio"
+        tools:layout="@layout/fragment_audio_selection">
+        <action
+            android:id="@+id/action_audioSelectionFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="com.example.musicplayer.PlayerFragment"
+        android:label="Reproductor"
+        tools:layout="@layout/fragment_player">
+        <argument
+            android:name="audioName"
+            app:argType="string" />
+        <argument
+            android:name="audioResId"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>
