@@ -4,4 +4,6 @@
     <string name="image_description">Selected Image</string>
     <string name="selected_image">Selected Image</string>
     <string name="back_button">Volver</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
