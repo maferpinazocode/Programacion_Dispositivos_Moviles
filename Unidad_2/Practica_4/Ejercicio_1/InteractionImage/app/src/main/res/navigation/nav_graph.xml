@@ -7,10 +7,18 @@
     <fragment
         android:id="@+id/imageSelectionFragment"
         android:name="com.example.interactionimage.ImageSelectionFragment"
-        tools:layout="@layout/fragment_image_selection" />
+        tools:layout="@layout/fragment_image_selection">
+        <action
+            android:id="@+id/action_imageSelectionFragment_to_imageDisplayFragment"
+            app:destination="@id/imageDisplayFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/imageDisplayFragment"
         android:name="com.example.interactionimage.ImageDisplayFragment"
-        tools:layout="@layout/fragment_image_display" />
+        tools:layout="@layout/fragment_image_display">
+        <argument
+            android:name="imageIndex"
+            app:argType="integer" />
+    </fragment>
 </navigation>
