@@ -9,7 +9,7 @@
         android:id="@+id/headerText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/cabecera_imagen"
+        android:text="@string/image_description"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -45,7 +45,8 @@
         android:layout_width="142dp"
         android:layout_height="60dp"
         tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="188dp">
+        tools:layout_editor_absoluteY="188dp"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
