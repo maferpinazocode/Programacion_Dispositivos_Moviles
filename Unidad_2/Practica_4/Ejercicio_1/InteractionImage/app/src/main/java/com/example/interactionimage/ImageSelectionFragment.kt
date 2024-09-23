@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 class ImageSelectionFragment : Fragment() {
 
@@ -30,11 +31,8 @@ class ImageSelectionFragment : Fragment() {
 
         nextButton.setOnClickListener {
             val selectedImageIndex = imageSpinner.selectedItemPosition
-            val imageDisplayFragment = ImageDisplayFragment.newInstance(selectedImageIndex)
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, imageDisplayFragment)
-                .addToBackStack(null)
-                .commit()
+            val action = ImageSelectionFragmentDirections.actionImageSelectionFragmentToImageDisplayFragment(selectedImageIndex)
+            findNavController().navigate(action)
         }
 
         return view

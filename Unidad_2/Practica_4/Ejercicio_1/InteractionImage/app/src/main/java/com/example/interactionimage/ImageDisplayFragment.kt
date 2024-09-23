@@ -15,7 +15,7 @@ class ImageDisplayFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            imageIndex = it.getInt(ARG_IMAGE_INDEX)
+            imageIndex = ImageDisplayFragmentArgs.fromBundle(it).imageIndex
         }
     }
 
@@ -42,11 +42,9 @@ class ImageDisplayFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_IMAGE_INDEX = "image_index"
-
         fun newInstance(imageIndex: Int) = ImageDisplayFragment().apply {
             arguments = Bundle().apply {
-                putInt(ARG_IMAGE_INDEX, imageIndex)
+                putInt("imageIndex", imageIndex)
             }
         }
     }
