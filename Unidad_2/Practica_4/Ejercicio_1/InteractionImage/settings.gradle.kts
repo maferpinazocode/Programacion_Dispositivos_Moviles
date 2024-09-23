@@ -18,7 +18,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
 rootProject.name = "InteractionImage"
 include(":app")
- 

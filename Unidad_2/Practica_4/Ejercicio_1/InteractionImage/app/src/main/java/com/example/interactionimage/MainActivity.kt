@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
@@ -16,9 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         // Cargar el fragmento de selección de imagen al iniciar la actividad
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ImageSelectionFragment())
-                .commit()
+            navController.navigate(R.id.imageSelectionFragment)
         }
     }
 }

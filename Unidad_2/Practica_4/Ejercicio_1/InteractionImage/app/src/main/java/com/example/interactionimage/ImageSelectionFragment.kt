@@ -31,7 +31,7 @@ class ImageSelectionFragment : Fragment() {
 
         nextButton.setOnClickListener {
             val selectedImageIndex = imageSpinner.selectedItemPosition
-            val action = ImageSelectionFragmentDirections.actionImageSelectionFragmentToImageDisplayFragment(selectedImageIndex)
+            val action = ImageSelectionFragmentDirections.action_imageSelectionFragment_to_imageDisplayFragment(selectedImageIndex)
             findNavController().navigate(action)
         }
 
