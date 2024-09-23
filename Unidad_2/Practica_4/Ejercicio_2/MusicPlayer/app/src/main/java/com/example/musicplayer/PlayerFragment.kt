@@ -34,18 +34,22 @@ class PlayerFragment : Fragment() {
         btnStop = view.findViewById(R.id.btnStop)
         btnBack = view.findViewById(R.id.btnBack)
 
-        // Obtain arguments passed using Safe Args
+        // Obtener los argumentos pasados usando Safe Args
         val args = PlayerFragmentArgs.fromBundle(requireArguments())
         val audioName = args.audioName
         val audioResId = args.audioResId
+        val imageResId = args.imageResId // Obtener el ID del recurso de la imagen
 
-        // Set the audio name to the TextView
+        // Establecer el nombre del audio en el TextView
         tvAudioName.text = audioName
 
-        // Initialize MediaPlayer with the selected audio resource
+        // Establecer la imagen correspondiente en el ImageView
+        ivAudioImage.setImageResource(imageResId)
+
+        // Inicializar MediaPlayer con el recurso de audio seleccionado
         mediaPlayer = MediaPlayer.create(requireContext(), audioResId)
 
-        // Set up buttons for play, pause, stop, and back
+        // Configurar los botones para reproducir, pausar, detener y regresar
         btnPlay.setOnClickListener { mediaPlayer?.start() }
         btnPause.setOnClickListener { mediaPlayer?.pause() }
         btnStop.setOnClickListener {

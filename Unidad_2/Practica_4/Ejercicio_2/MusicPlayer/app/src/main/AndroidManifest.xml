@@ -19,9 +19,6 @@
             android:name=".AudioSelectionFragment"
             android:exported="false" />
         <activity
-            android:name=".PlayerActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

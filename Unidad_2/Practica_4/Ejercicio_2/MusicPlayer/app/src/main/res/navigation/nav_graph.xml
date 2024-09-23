@@ -26,6 +26,9 @@
         <argument
             android:name="audioResId"
             app:argType="integer" />
+        <argument
+            android:name="imageResId"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

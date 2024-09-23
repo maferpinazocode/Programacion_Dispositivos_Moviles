@@ -22,12 +22,23 @@ class AudioSelectionFragment : Fragment() {
         "paris texas by lana del rey",
         "yes to heaven by lana del rey"
     )
+    // Lista de audios
     private val audioResIds = listOf(
         R.raw.crush,
         R.raw.football,
         R.raw.heavy,
         R.raw.paris_texas,
         R.raw.yes_to_heaven
+    )
+
+    // Lista de IDs de imágenes correspondientes a cada audio
+    private val imageResIds = listOf(
+        R.drawable.crush_img,
+        R.drawable.football_img,
+        R.drawable.heavy_img,
+        R.drawable.paris_texas,
+        R.drawable.yth_img,
+        R.drawable.the_marias_img
     )
 
     override fun onCreateView(
@@ -39,18 +50,20 @@ class AudioSelectionFragment : Fragment() {
         spinner = view.findViewById(R.id.spinnerAudios)
         btnSelect = view.findViewById(R.id.btnSelect)
 
-        // Set up the adapter for the spinner
+        // Configurar el adaptador del spinner
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, audioList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
-        // Set up button click listener to navigate to PlayerFragment with selected audio details
+        // Configurar el click del botón para navegar al PlayerFragment con los detalles del audio seleccionado
         btnSelect.setOnClickListener {
             val selectedAudioIndex = spinner.selectedItemPosition
-            val action = AudioSelectionFragmentDirections.actionAudioSelectionFragmentToPlayerFragment(
-                audioName = audioList[selectedAudioIndex],
-                audioResId = audioResIds[selectedAudioIndex]
-            )
+            val action = AudioSelectionFragmentDirections
+                .actionAudioSelectionFragmentToPlayerFragment(
+                    audioName = audioList[selectedAudioIndex],
+                    audioResId = audioResIds[selectedAudioIndex],
+                    imageResId = imageResIds[selectedAudioIndex] // Pasar también el ID de la imagen
+                )
             findNavController().navigate(action)
         }
 
