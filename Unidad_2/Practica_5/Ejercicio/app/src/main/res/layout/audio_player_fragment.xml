@@ -16,7 +16,7 @@
         android:id="@+id/audioNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Audio Name"
+        android:text="@string/Audio"
         android:textSize="18sp"
         android:layout_marginTop="16dp" />
 
@@ -30,20 +30,20 @@
             android:id="@+id/playButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play" />
+            android:text="@string/ButtonPlay" />
 
         <Button
             android:id="@+id/pauseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pause"
+            android:text="@string/ButtonPause"
             android:layout_marginStart="8dp" />
 
         <Button
             android:id="@+id/stopButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stop"
+            android:text="@string/ButtonStop"
             android:layout_marginStart="8dp" />
     </LinearLayout>
 </LinearLayout>
