@@ -13,8 +13,8 @@ class AudioListFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var audioAdapter: AudioAdapter
     private val audioList = listOf(
-        AudioItem("Audio 1", R.drawable.crush_img, "03:45", R.raw.crush),
-        AudioItem("Audio 2", R.drawable.football_img, "02:30", R.raw.football),
+        AudioItem("Crush", R.drawable.crush_img, "03:45", R.raw.crush),
+        AudioItem("Football", R.drawable.football_img, "02:30", R.raw.football),
     )
 
     override fun onCreateView(
