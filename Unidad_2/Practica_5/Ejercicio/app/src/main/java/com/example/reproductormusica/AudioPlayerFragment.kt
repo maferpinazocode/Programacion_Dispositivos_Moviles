@@ -39,8 +39,9 @@ class AudioPlayerFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.audio_player_fragment, container, false)
 
+        // El fragmento de reproducción recibe el AudioItem a través del argumento
         // Inicializar botones y componentes
-        val audioItem = arguments?.getParcelable<AudioItem>(ARG_AUDIO_ITEM)  // Corregido
+        val audioItem = arguments?.getParcelable<AudioItem>(ARG_AUDIO_ITEM)
         val audioImageView: ImageView = view.findViewById(R.id.audioImageView)
         val audioNameTextView: TextView = view.findViewById(R.id.audioNameTextView)
         playButton = view.findViewById(R.id.playButton)
