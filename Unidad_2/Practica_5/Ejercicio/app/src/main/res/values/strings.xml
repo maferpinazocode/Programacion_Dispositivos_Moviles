@@ -6,5 +6,6 @@
     <string name="ButtonStop">Stop</string>
     <string name="ButtonPause">Pause</string>
     <string name="ButtonPlay">Play</string>
+    <string name="ButtonBack">Back</string>
 
 </resources>
